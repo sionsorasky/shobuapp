@@ -1,157 +1,71 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>アプリ風サイト</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Emoji:wght@300..700&display=swap');
-    </style>
-    <style>
-        body {
-          margin: 0;
-          font-family: sans-serif;
-          background-color: #f3f4f6;
-          display: flex;
-          flex-direction: column;
-          min-height: 100vh;
-        }
-
-        header {
-          background-color: #3b82f6;
-          color: white;
-          padding: 1rem;
-          font-size: 1.5rem;
-          font-weight: bold;
-          text-align: center;
-        }
-
-        main {
-          flex: 1;
-          padding: 1rem;
-        }
-
-        .card {
-          background: white;
-          border-radius: 1rem;
-          box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-          padding: 1rem;
-          margin-bottom: 1rem;
-        }
-
-        nav {
-          display: flex;
-          justify-content: space-around;
-          background: white;
-          border-top: 1px solid #ccc;
-          padding: 0.5rem 0;
-          box-shadow: 0 -2px 4px rgba(0,0,0,0.05);
-        }
-
-        nav button {
-          background: none;
-          border: none;
-          color: #6b7280;
-          font-size: 0.9rem;
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-          cursor: pointer;
-        }
-
-        nav button.active {
-          color: #3b82f6;
-        }
-
-        .tab-content {
-          display: none;
-        }
-
-        .tab-content.active {
-          display: block;
-        }
-
-        input[type="text"] {
-          width: 100%;
-          padding: 0.5rem;
-          font-size: 1rem;
-          border: 1px solid #ccc;
-          border-radius: 0.5rem;
-          margin-bottom: 1rem;
-        }
-
-
-.noto-emoji-<uniquifier> {
-  font-family: "Noto Emoji", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
-}
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>アプリ風サイト</title>
+  <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-<header>勝武鉄道</header>
+  <header>MyApp</header>
 
-<main>
-    <!-- ホームタブ -->
+  <main>
+    <!-- ホーム -->
     <div id="home" class="tab-content active">
-        <div class="card">
-            <h2>ようこそ！</h2>
-            <p>勝武鉄道は、日本一正確な鉄道を目指しています。</p>
-        </div>
-        <div class="card">
-            <h2>お知らせ</h2>
-            <p>2025/04/20　開発をリセットしました</p>
-        </div>
-        <div class="card">
-            <h2>社員募集</h2>
-            <p><a href="https://discord.gg/KaPTGc6s4V">ここ</a>からdiscordに参加して、応募してください。</p>
-        </div>
+      <div class="card">
+        <h2>ようこそ！</h2>
+        <p>これはアプリ風のUIを持つWebサイトです。</p>
+      </div>
+      <div class="card">
+        <h2>機能</h2>
+        <p>カードデザインとナビ、検索、テーマ切替も！</p>
+      </div>
     </div>
 
-    <!-- 検索タブ -->
+    <!-- 検索 -->
     <div id="search" class="tab-content">
-        <input type="text" id="searchInput" placeholder="キーワードを入力…" oninput="filterCards()" />
-        <div id="searchResults">
-            <div class="card">
-                <h2>検索について</h2>
-                <p>入力された文字に一致するカードを表示します。</p>
-            </div>
+      <input type="text" id="searchInput" placeholder="キーワードを入力…" />
+      <p id="searchCount">全 3 件</p>
+      <div id="searchResults">
+        <div class="card">
+          <h2>検索について</h2>
+          <p>入力された文字に一致するカードを表示します。</p>
         </div>
+        <div class="card">
+          <h2>アプリ風UI</h2>
+          <p>アプリっぽい見た目をHTMLとCSSで再現！</p>
+        </div>
+        <div class="card">
+          <h2>JavaScript</h2>
+          <p>軽量なJSだけで検索機能を実現！</p>
+        </div>
+      </div>
     </div>
 
-    <!-- 設定タブ -->
+    <!-- 設定 -->
     <div id="settings" class="tab-content">
-        <p>⚙️ 設定ページです（開発中）。</p>
-    </div>
-</main>
+      <h2>テーマ設定</h2>
+      <select id="themeSelect">
+        <option value="system">システム</option>
+        <option value="light">ライト</option>
+        <option value="dark">ダーク</option>
+      </select>
 
-<nav>
+      <h2>文字サイズ</h2>
+      <select id="fontSizeSelect">
+        <option value="small">小</option>
+        <option value="medium" selected>中</option>
+        <option value="large">大</option>
+      </select>
+    </div>
+  </main>
+
+  <nav>
     <button class="active" onclick="switchTab('home', this)">🏠<span>ホーム</span></button>
     <button onclick="switchTab('search', this)">🔍<span>検索</span></button>
     <button onclick="switchTab('settings', this)">⚙️<span>設定</span></button>
-</nav>
+  </nav>
 
-<script>
-    function switchTab(id, btn) {
-      // タブ切り替え
-      document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-      document.getElementById(id).classList.add('active');
-
-      // ボタンのアクティブ状態更新
-      document.querySelectorAll('nav button').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-    }
-
-    function filterCards() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const cards = document.querySelectorAll("#searchResults .card");
-
-      cards.forEach(card => {
-        const text = card.innerText.toLowerCase();
-        card.style.display = text.includes(input) ? "block" : "none";
-      });
-    }
-</script>
+  <script src="js/main.js"></script>
 </body>
 </html>
