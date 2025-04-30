@@ -62,12 +62,13 @@
       </select>
     </div>
   </main>
+<nav>
+  <button class="active" onclick="switchTab('home', this)">🏠<span>ホーム</span></button>
+  <button onclick="switchTab('search', this)">🔍<span>検索</span></button>
+  <button onclick="switchTab('settings', this)">⚙️<span>設定</span></button>
+  <button onclick="window.open('https://www.google.com', '_blank')">🏠<span>移住</span></button>
+</nav>
 
-  <nav>
-    <button class="active" onclick="switchTab('home', this)">🏠<span>ホーム</span></button>
-    <button onclick="switchTab('search', this)">🔍<span>検索</span></button>
-    <button onclick="switchTab('settings', this)">⚙️<span>設定</span></button>
-  </nav>
 
   <script src="js/main.js"></script>
 </body>
