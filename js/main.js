@@ -41,6 +41,7 @@ themeSelect.addEventListener("change", () => {
   }
 });
 
+
 // 文字サイズ切替
 const fontSizeSelect = document.getElementById("fontSizeSelect");
 fontSizeSelect.addEventListener("change", () => {
