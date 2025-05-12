@@ -86,3 +86,14 @@ input[type="text"], select {
   border: 1px solid #ccc;
   border-radius: 0.5rem;
 }
+
+.fuchi {
+      color: white; /* 文字色 */
+      font-size: 48px;
+      font-weight: bold;
+      text-shadow:
+        -1px -1px 0 black,
+         1px -1px 0 black,
+        -1px  1px 0 black,
+         1px  1px 0 black; /* 縁の色と太さ */
+}
