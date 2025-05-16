@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Shobu e+｜イベント予約</title>
+    <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header>Shobu e+</header>
+
+<main>
+    <ul id="eventList" class="event-list">
+        <li onclick="selectEvent('現在予約可能なイベントはございません', '次のイベントまでお待ちください')">現在予約可能なイベントはございません</li>
+    </ul>
+
+    <div id="eventDetail" class="event-detail">イベントを選択してください。</div>
+</main>
+
+<button id="applyButton" onclick="openForm()">申し込み</button>
+
+<div id="formModal" class="modal hidden">
+    <div class="modal-content">
+        <h2>Shobu e+申し込みフォーム</h2>
+        <form id="applyForm">
+            <input type="text" id="robloxName" placeholder="Robloxユーザーネーム" required />
+            <input type="text" id="discordName" placeholder="Discordユーザーネーム" required />
+            <input type="hidden" id="selectedEvent" />
+            <button type="submit">送信</button>
+            <button type="button" onclick="closeForm()">キャンセル</button>
+        </form>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
