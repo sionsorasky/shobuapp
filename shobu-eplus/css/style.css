@@ -1,3 +1,4 @@
+/* 全体の基本設定 */
 body {
   font-family: sans-serif;
   margin: 0;
@@ -5,6 +6,7 @@ body {
   color: #333;
 }
 
+/* ヘッダー */
 header {
   background: #4CAF50;
   color: white;
@@ -14,6 +16,7 @@ header {
   position: relative;
 }
 
+/* 戻るボタン */
 .back-button {
   background: none;
   border: none;
@@ -23,8 +26,23 @@ header {
   position: absolute;
   left: 1rem;
   top: 1rem;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
+/* Safariでのすべてのbutton要素のリセット */
+button {
+  appearance: none;
+  -webkit-appearance: none;
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+}
+
+/* イベントリスト */
 .event-list {
   list-style: none;
   padding: 0;
@@ -44,6 +62,7 @@ header {
   background: #e0f7fa;
 }
 
+/* イベント詳細 */
 .event-detail {
   padding: 1rem;
   background: #fff3cd;
@@ -51,6 +70,7 @@ header {
   border-radius: 0.5rem;
 }
 
+/* 下部の「申し込み」ボタン */
 #applyButton {
   position: fixed;
   bottom: 0;
@@ -61,8 +81,11 @@ header {
   padding: 1rem;
   border: none;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
+/* モーダル背景 */
 .modal {
   position: fixed;
   top: 0;
@@ -72,10 +95,12 @@ header {
   background: rgba(0,0,0,0.5);
 }
 
+/* 非表示モーダル */
 .modal.hidden {
   display: none;
 }
 
+/* モーダルの中身 */
 .modal-content {
   background: white;
   margin: 10% auto;
@@ -85,6 +110,7 @@ header {
   border-radius: 0.5rem;
 }
 
+/* 入力欄 */
 input[type="text"] {
   width: 100%;
   padding: 0.8rem;
@@ -92,9 +118,12 @@ input[type="text"] {
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
+  box-sizing: border-box;
 }
 
-button[type="submit"], button[type="button"] {
+/* フォームの送信・キャンセルボタン */
+button[type="submit"],
+button[type="button"] {
   width: 48%;
   padding: 0.8rem;
   font-size: 1rem;
@@ -102,13 +131,17 @@ button[type="submit"], button[type="button"] {
   border-radius: 0.5rem;
   margin-right: 2%;
   cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
 
+/* 送信ボタン */
 button[type="submit"] {
   background: #4CAF50;
   color: white;
 }
 
+/* キャンセルボタン */
 button[type="button"] {
   background: #f44336;
   color: white;
